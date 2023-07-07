@@ -37,7 +37,7 @@ public class PostController {
         postService.updatePost(id, postRequestDto);
     }
 
-  // 깃허브 커밋 완료 1
+  // 깃허브 커밋 완료 234
     @DeleteMapping("/posts/{id}")
     public void deletePost(@PathVariable Long id, @RequestBody PostRequestDto postRequest){
         postService.deletePost(id, postRequest);
