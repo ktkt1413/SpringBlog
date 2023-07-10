@@ -4,7 +4,6 @@ package com.sparta.postingboard.entity;
 //DB에 실제로 저장되는 데이터를 가짐
 
 import com.sparta.postingboard.dto.PostRequestDto;
-import com.sparta.postingboard.repository.PostRepository;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,38 +13,29 @@ import lombok.NoArgsConstructor;
 @Table(name = "post")
 @NoArgsConstructor
 
-public class Post extends BaseEntity {
+public class Post extends Timestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "title", nullable = false)
     private String title;
 
-    private String name;
+    @Column(name="username", nullable = false)
+    private String username;
 
+    @Column(name="content", nullable = false,  length = 500)
     private String content;
 
-    private String password;
-
-    public Post(String title, String name, String content, String password) {
-        this.title = title;
-        this.name = name;
-        this.content = content;
-        this.password = password;
+    public Post(PostRequestDto requestDto, String username){
+        this.title = requestDto.getTitle();
+        this.username = username;
+        this.content = requestDto.getContent();
     }
 
-    public void update(String title, String name, String content) {
-        this.title = title;
-        this.name = name;
-        this.content = content;
-    }
-
-    public boolean isValidPassword(String inputPassword) {
-        if (inputPassword.equals(this.password)) {
-            return true;
-        } else {
-            return false;
-        }
+    public void update(PostRequestDto requestDto){
+        this.title = requestDto.getTitle();
+        this.content = requestDto.getContent();
     }
 }
 

@@ -1,20 +1,13 @@
 package com.sparta.postingboard.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+
 
 @Getter
-@NoArgsConstructor
 public class PostRequestDto {
+    @NotBlank  //null 과 "" 과 " " 모두 허용하지 않음
     private String title;
-    private String name;
+    @NotBlank
     private String content;
-    private String password;
-
-    public PostRequestDto(String title, String writer, String password, String content) {
-        this.title = title;
-        this.name = writer;
-        this.password = password;
-        this.content = content;
-    }
 }
