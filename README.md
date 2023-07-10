@@ -1,4 +1,5 @@
 # SpringBlog
 
 
-<img width="972" alt="SCR-20230704-jdcq" src="https://github.com/ktkt1413/SpringBlog/assets/105848447/aa040f50-4284-4bd4-b467-e3bf2761ca9c">
+<img width="708" alt="SCR-20230710-qjcp" src="https://github.com/ktkt1413/SpringBlog/assets/105848447/4346c7d7-06f6-4756-9e52-09ea640c380f">
+
